@@ -8,15 +8,29 @@
 / {
 	chosen {
 		stdout-path = &uart2;
+		u-boot,spl-boot-order = "same-as-spl", &sdhci;
+	};
+};
+
+&i2c0 {
+	bootph-pre-ram;
+};
+
+&rk817 {
+	bootph-pre-ram;
+
+	regulators {
+		bootph-pre-ram;
 	};
 };
 
 &sdhci {
-	max-frequency = <200000000>;
+	cap-mmc-highspeed;
+	mmc-ddr-1_8v;
 };
 
 &uart2 {
+	bootph-all;
 	clock-frequency = <24000000>;
-	u-boot,dm-pre-reloc;
 	status = "okay";
 };
