@@ -36,7 +36,6 @@
 
 &sdhci {
 	cap-mmc-highspeed;
-	mmc-ddr-1_8v;
 };
 
 &sdmmc_pwren_l {
